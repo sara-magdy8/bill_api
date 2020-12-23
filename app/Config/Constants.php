@@ -49,7 +49,7 @@ defined('DECADE') || define('DECADE', 315360000);
 | While there is no universal standard for error codes, there are some
 | broad conventions.  Three such conventions are mentioned below, for
 | those who wish to make use of them.  The CodeIgniter defaults were
-| chosen for the least overlap with these conventions, while still
+| chosen for the least overlap with these conventions, while stillss
 | leaving room for others to be defined in future versions and user
 | applications.
 |
@@ -75,7 +75,12 @@ defined('EXIT_USER_INPUT')     || define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       || define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+if(isset($_SERVER['HTTP_HOST'])){
  $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://'.$_SERVER['HTTP_HOST'] : 'http://'.$_SERVER['HTTP_HOST'];
+}else{
+   $protocol = ""; 
+}
     defined('BASE') || define('BASE',$protocol);
-defined('API_AUTH_CODE')      || define('API_AUTH_CODE', 'fvV2M4'); // Api Authentication code.
+defined('API_AUTH_USER')      || define('API_AUTH_USER', 'user'); // Api Authentication code
+defined('API_AUTH_PASS')      || define('API_AUTH_PASS', 'fvV2M4'); // Api Authentication code.
 

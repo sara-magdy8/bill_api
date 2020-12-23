@@ -49,3 +49,5 @@ if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
 {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
 }
+$routes->add('api', 'Api\V1\Bills::index', ['filter' => 'basicAuthFilter']);
+

@@ -1,4 +1,4 @@
-<?php namespace app\Models;
+<?php namespace App\Models;
 
 use CodeIgniter\Model;
 class Product extends Model
@@ -21,7 +21,7 @@ class Product extends Model
     }
     
     /**
-     * @desc set optional attributes (discounts to the product)
+     * set optional attributes (discounts to the product)
      * @param $name - the name of the attribute
      * @param $value - the value of the attribute
      */

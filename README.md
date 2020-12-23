@@ -8,7 +8,9 @@ This repository holds the whole source code for this API.
 
 # How to Run
 
-Place All Files on the root of your web server, And read the follwing in order to know how to send a request to the API.
+1) Place All Files on the root of your web server.
+2) Open PHPunit.xml file on the root and change app.baseURL with your corresponding URL.
+Then read the follwing in order to know how to send a request to the API.
 
 ## API Pre-defined products & Currencies
 ##### Products :
@@ -29,38 +31,35 @@ With the following offers :
 	
 ## API Request
 Use **POST** Method. The request is in a JSON Format Containing the following data :
-- "auth" --- (String) (Mandatory) : The Authentication code that must be provided to be able to access the API.
 - "products" --- (Array) (Mandatory) : List with Product's Names we need to generate the bill for.
 - "currency" --- (String) (Mandatory) : currency code to generate bill priceses in this currency.
 
-##### Example :
+Note: The API requires a basic authorization use (username: user , password: fvV2M4)
+
+##### Request Example :
 
 	{
-	  "auth" : "fvV2M4",
 	  "products" : ["T-shirt","T-shirt","Shoes","Jacket"],
 	  "currency" : "USD"
 	}
 
 ## API Response
-The Response is in a **JSON** Format
-- "status" --- (String) : success/error.
-- "response" --- (Array) : A List with the detailed bill fields **OR** the error message if error occurs.
+The Response is in a **JSON** Format, With the appropriate HTTP status code.
+
 
 ##### Example :
 
 	{
-	    "status": "success",
-	    "response": {
-	        "Subtotal": "66.96 $",
-	        "Taxes": "9.37 $",
-	        "Discounts": " -- 10% off Shoes: -2.499 $ -- 50% off Jacket: -9.995 $",
-	        "Total": "63.8404 $"
-	    }
+	    "Subtotal": "66.96 $",
+	    "Taxes": "9.37 $",
+	    "Discounts": " -- 10 % off Shoes: -2.499 $ -- 50 % off Jacket: -9.995 $",
+	    "Total": "63.84 $"
 	}
 
 ## Additional Notes:
-- You must provide **fvV2M4** as authentication code to the API.
 - Logs Messages can be found in "/writable/logs" folder.
-- Unit tests is located in "app/Controllers/Tests" folder and can be run by visit thses controllers from any broswer  
-(ex. http://[Server_name]/tests/CurrencyTest/test_convert_amount).
-- If you want to add additional products or currencies to the APP, Open the **Bills.php** file (app/Models/Bills) and add new product object or new currency object.
+- Unit tests is implemented using PHPUnit (The PHP Testing Framework), The testing files is located in "Tests" folder and can be run from the command line on the root location and then type:
+
+		 vendor\bin\PHPUnit
+
+- If you want to add additional products or currencies to the APP, Open the **GenerateBill.php** file (app/Controllers/GenerateBill) and add new product object or new currency object in **defineAppData** function.
