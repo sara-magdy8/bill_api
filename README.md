@@ -9,7 +9,7 @@ This repository holds the whole source code for this API.
 # How to Run
 
 1) Place All Files on the root of your web server.
-2) Open PHPunit.xml file on the root and change app.baseURL with your corresponding URL.
+2) Open PHPunit.xml file you will find it on the root and change app.baseURL with your corresponding server URL.
 Then read the follwing in order to know how to send a request to the API.
 
 ## API Pre-defined products & Currencies
@@ -58,8 +58,8 @@ The Response is in a **JSON** Format, With the appropriate HTTP status code.
 
 ## Additional Notes:
 - Logs Messages can be found in "/writable/logs" folder.
-- Unit tests is implemented using PHPUnit (The PHP Testing Framework), The testing files is located in "Tests" folder and can be run from the command line on the root location and then type:
+- Unit test implemented using PHPUnit, The testing files are located in "Tests" folder, to run these tests open the command line and go to the root directory and then type:
 
 		 vendor\bin\PHPUnit
 
-- If you want to add additional products or currencies to the APP, Open the **GenerateBill.php** file (app/Controllers/GenerateBill) and add new product object or new currency object in **defineAppData** function.
+- If you want to add additional products or currencies to the APP, Open the **GenerateBill.php** file (app/Controllers/GenerateBill) and then add a new product object or a new currency object in **defineAppData** function.
